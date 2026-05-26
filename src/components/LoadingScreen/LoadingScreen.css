@@ -1,0 +1,91 @@
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #000510;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: 'Orbitron', monospace;
+}
+
+.loading-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  width: min(480px, 90vw);
+}
+
+.loading-os-version {
+  font-size: clamp(10px, 1.2vw, 13px);
+  letter-spacing: 0.4em;
+  color: #4a9eff;
+  margin-bottom: 32px;
+  opacity: 0.8;
+}
+
+.loading-first-name {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #fff;
+  margin-bottom: 8px;
+  text-shadow: 0 0 40px rgba(74, 158, 255, 0.8);
+}
+
+.loading-last-name {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #4a9eff;
+  margin-bottom: 48px;
+  text-shadow: 0 0 40px rgba(74, 158, 255, 0.8);
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 2px;
+  background: rgba(74, 158, 255, 0.15);
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #1a4a8a, #4a9eff, #80caff);
+  transition: width 0.1s;
+  box-shadow: 0 0 12px #4a9eff;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: rgba(74, 158, 255, 0.6);
+  margin-bottom: 24px;
+}
+
+.progress-bars {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.progress-bar-item {
+  width: 3px;
+  height: 8px;
+  background: rgba(74, 158, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.progress-bar-item.active {
+  height: 20px;
+  background: #4a9eff;
+  box-shadow: 0 0 8px #4a9eff;
+}

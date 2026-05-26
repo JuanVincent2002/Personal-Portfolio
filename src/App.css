@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(5, 15, 40, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(74, 158, 255, 0.4);
+  border-radius: 2px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.app {
+  background: #000510;
+  min-height: 100vh;
+  font-family: 'Rajdhani', sans-serif;
+  color: #fff;
+}

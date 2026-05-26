@@ -1,0 +1,24 @@
+.page-wrapper {
+  min-height: 100vh;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-wrapper-bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 30%, rgba(5, 20, 60, 0.8) 0%, #020810 70%);
+  z-index: 1;
+}
+
+.page-wrapper-content {
+  position: relative;
+  z-index: 2;
+}

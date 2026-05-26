@@ -1,0 +1,36 @@
+.back-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 50;
+  background: none;
+  border: 1px solid rgba(74, 158, 255, 0.3);
+  cursor: pointer;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.back-btn.hovered {
+  box-shadow: 0 0 20px rgba(74, 158, 255, 0.3);
+  border-color: rgba(74, 158, 255, 0.7);
+}
+
+.back-btn-arrow {
+  color: #4a9eff;
+  font-size: 14px;
+}
+
+.back-btn-text {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: rgba(200, 220, 255, 0.7);
+  transition: all 0.3s;
+}
+
+.back-btn.hovered .back-btn-text {
+  color: #fff;
+}

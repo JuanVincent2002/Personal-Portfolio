@@ -1,0 +1,30 @@
+.section-title {
+  padding-top: 100px;
+  padding-bottom: 48px;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(8px, 0.9vw, 11px);
+  letter-spacing: 0.5em;
+  color: #4a9eff;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
+.section-label {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(24px, 4vw, 48px);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 30px rgba(74, 158, 255, 0.4);
+}
+
+.section-divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #4a9eff, transparent);
+  margin: 16px auto 0;
+}

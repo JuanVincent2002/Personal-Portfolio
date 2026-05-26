@@ -1,0 +1,101 @@
+.project-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(74, 158, 255, 0.15);
+}
+
+.project-header-icon {
+  font-size: 18px;
+}
+
+.project-header-text {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(74, 158, 255, 0.7);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.project-card {
+  background: rgba(5, 15, 40, 0.7);
+  border: 1px solid rgba(74, 158, 255, 0.15);
+  cursor: pointer;
+  padding: 20px 20px;
+  text-align: left;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  height: 100%; /* Agar card sama tinggi */
+}
+
+.project-card.hovered {
+  background: rgba(74, 158, 255, 0.08);
+  border-color: rgba(74, 158, 255, 0.5);
+  box-shadow: 0 0 30px rgba(74, 158, 255, 0.15);
+}
+
+.project-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ==================== GAMBAR ICON ==================== */
+.project-icon {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.project-icon img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  filter: brightness(1.1) contrast(1.1);
+  transition: all 0.4s ease;
+  drop-shadow: 0 0 8px rgba(74, 158, 255, 0.3);
+}
+
+.project-card.hovered .project-icon img {
+  transform: scale(1.18) rotate(8deg);
+  filter: brightness(1.25) contrast(1.15);
+}
+
+/* ==================== TEKS ==================== */
+.project-name {
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.project-open {
+  margin-top: 8px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(74, 158, 255, 0.5);
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}

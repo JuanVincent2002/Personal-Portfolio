@@ -1,0 +1,101 @@
+.contact-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.contact-subtitle {
+  text-align: center;
+  margin-bottom: 48px;
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: rgba(74, 158, 255, 0.5);
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 28px;
+  background: rgba(5, 15, 40, 0.7);
+  border: 1px solid rgba(74, 158, 255, 0.15);
+  text-decoration: none;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.contact-item.hovered {
+  background: rgba(5, 15, 40, 0.9);
+  border-color: var(--contact-color);
+  box-shadow: 0 0 30px var(--contact-color, rgba(74, 158, 255, 0.2));
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(74, 158, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  border-radius: 8px;
+  background: rgba(10, 25, 60, 0.5);
+}
+
+.contact-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.contact-item.hovered .contact-icon {
+  border-color: var(--contact-color);
+  box-shadow: 0 0 16px var(--contact-color);
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(200, 220, 255, 0.8);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+  transition: color 0.3s;
+}
+
+.contact-item.hovered .contact-label {
+  color: #fff;
+}
+
+.contact-handle {
+  font-size: 12px;
+  color: rgba(120, 160, 200, 0.5);
+  transition: color 0.3s;
+}
+
+.contact-item.hovered .contact-handle {
+  color: var(--contact-color);
+}
+
+.contact-connect {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  color: rgba(74, 158, 255, 0.3);
+  transition: all 0.3s;
+}
+
+.contact-item.hovered .contact-connect {
+  color: var(--contact-color);
+}
