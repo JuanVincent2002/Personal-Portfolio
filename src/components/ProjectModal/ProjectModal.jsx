@@ -1,24 +1,53 @@
+import { useState } from "react";
+import ProjectDetailModal from "../ProjectDetailModal/ProjectDetailModal";
 import "./ProjectModal.css";
 
 export default function ProjectModal({ project, onClose }) {
-  const imgs = ["https://picsum.photos/seed/"+project.id+"1/400/250","https://picsum.photos/seed/"+project.id+"2/400/250","https://picsum.photos/seed/"+project.id+"3/400/250"];
+  const [selectedSubProject, setSelectedSubProject] = useState(null);
+
+  if (selectedSubProject) {
+    return (
+      <ProjectDetailModal
+        subProject={selectedSubProject}
+        projectName={project.name}
+        projectColor={project.color}
+        onClose={() => setSelectedSubProject(null)}
+        onBackToProject={() => setSelectedSubProject(null)}
+      />
+    );
+  }
+
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-container" onClick={e => e.stopPropagation()}>
-        <div className="modal-header">
-          <div>
-            <div className="modal-title">{project.name}</div>
-            <div className="modal-tags">
-              {project.tags.map(t => <span key={t} className="modal-tag">{t}</span>)}
+    <div className="project-modal-overlay" onClick={onClose}>
+      <div className="project-modal-container" onClick={(e) => e.stopPropagation()}>
+        <div className="project-modal-header">
+          <div className="project-modal-header-left">
+            <div className="project-modal-icon">
+              <img src={project.icon} alt={project.name} className="project-modal-icon-img" />
             </div>
+            <div className="project-modal-title">{project.name}</div>
           </div>
-          <button onClick={onClose} className="modal-close">✕</button>
+          <button onClick={onClose} className="project-modal-close">✕</button>
         </div>
-        <div className="modal-body">
-          <div className="modal-images">
-            {imgs.map((src,i) => <img key={i} src={src} alt="" className="modal-image" />)}
+        
+        <div className="project-modal-body">
+          <div className="sub-projects-list">
+            {project.subProjects.map((sub, index) => (
+              <div
+                key={sub.id}
+                className="sub-project-item"
+                onClick={() => setSelectedSubProject(sub)}
+                style={{ '--project-color': project.color }}
+              >
+                <div className="sub-project-number">{(index + 1).toString().padStart(2, '0')}</div>
+                <div className="sub-project-info">
+                  <div className="sub-project-title">{sub.title}</div>
+                  <div className="sub-project-preview">Click to view details →</div>
+                </div>
+                <div className="sub-project-arrow">▶</div>
+              </div>
+            ))}
           </div>
-          <p className="modal-description">{project.desc}</p>
         </div>
       </div>
     </div>

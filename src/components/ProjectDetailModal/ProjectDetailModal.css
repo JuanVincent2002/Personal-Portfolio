@@ -1,0 +1,200 @@
+.detail-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 5, 20, 0.95);
+  backdrop-filter: blur(12px);
+}
+
+.detail-modal-container {
+  background: rgba(5, 15, 40, 0.98);
+  border: 1px solid rgba(74, 158, 255, 0.3);
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 60px rgba(74, 158, 255, 0.2);
+  border-radius: 16px;
+}
+
+.detail-modal-header {
+  padding: 20px 28px;
+  border-bottom: 1px solid rgba(74, 158, 255, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-modal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.detail-back-btn {
+  background: none;
+  border: 1px solid rgba(74, 158, 255, 0.3);
+  cursor: pointer;
+  padding: 6px 14px;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(200, 220, 255, 0.7);
+  transition: all 0.3s;
+  border-radius: 6px;
+}
+
+.detail-back-btn:hover {
+  border-color: rgba(74, 158, 255, 0.7);
+  color: #fff;
+}
+
+.detail-modal-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.detail-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(200, 220, 255, 0.5);
+  font-size: 24px;
+  font-family: 'Orbitron', monospace;
+  transition: all 0.3s;
+}
+
+.detail-modal-close:hover {
+  color: #fff;
+}
+
+.detail-modal-body {
+  padding: 28px;
+}
+
+.detail-image-container {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.detail-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.detail-image-container:hover .detail-image {
+  transform: scale(1.02);
+}
+
+.image-fullscreen-icon {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Orbitron', monospace;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.detail-image-container:hover .image-fullscreen-icon {
+  opacity: 1;
+}
+
+.detail-info {
+  margin-top: 20px;
+}
+
+.detail-project-name {
+  font-family: 'Orbitron', monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.detail-description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(180, 200, 230, 0.8);
+}
+
+.detail-link-container {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(74, 158, 255, 0.1);
+  border: 1px solid rgba(74, 158, 255, 0.3);
+  border-radius: 40px;
+  text-decoration: none;
+  font-family: 'Orbitron', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.detail-link:hover {
+  background: rgba(74, 158, 255, 0.2);
+  border-color: var(--project-color, #4a9eff);
+  transform: translateY(-2px);
+}
+
+/* Fullscreen styles */
+.fullscreen-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.fullscreen-image {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+}
+
+.fullscreen-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 32px;
+  font-family: 'Orbitron', monospace;
+  transition: all 0.3s;
+}
+
+.fullscreen-close:hover {
+  color: #4a9eff;
+  transform: scale(1.1);
+}
