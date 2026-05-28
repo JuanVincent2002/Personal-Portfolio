@@ -3,16 +3,64 @@ import "./ProjectDetailModal.css";
 
 export default function ProjectDetailModal({ subProject, projectName, projectColor, onClose, onBackToProject }) {
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isSliderFullscreen, setIsSliderFullscreen] = useState(false);
 
-  const toggleFullscreen = () => {
-    setIsFullscreen(!isFullscreen);
+  // Pastikan images dalam bentuk array
+  const images = subProject.images || (subProject.image ? [subProject.image] : []);
+  const hasMultipleImages = images.length > 1;
+
+  const nextImage = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
   };
 
+  const prevImage = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const openFullscreen = (e) => {
+    e.stopPropagation();
+    if (hasMultipleImages) {
+      setIsSliderFullscreen(true);
+    } else {
+      setIsFullscreen(true);
+    }
+  };
+
+  const closeFullscreen = () => {
+    setIsFullscreen(false);
+    setIsSliderFullscreen(false);
+  };
+
+  // Fullscreen untuk slider (multiple images)
+  if (isSliderFullscreen) {
+    return (
+      <div className="fullscreen-overlay" onClick={closeFullscreen}>
+        <div className="fullscreen-slider-container" onClick={(e) => e.stopPropagation()}>
+          <button className="fullscreen-prev" onClick={prevImage}>◀</button>
+          <img 
+            src={images[currentImageIndex]} 
+            alt={`${subProject.title} - ${currentImageIndex + 1}`} 
+            className="fullscreen-image" 
+          />
+          <button className="fullscreen-next" onClick={nextImage}>▶</button>
+          <div className="fullscreen-counter">
+            {currentImageIndex + 1} / {images.length}
+          </div>
+          <button className="fullscreen-close" onClick={closeFullscreen}>✕</button>
+        </div>
+      </div>
+    );
+  }
+
+  // Fullscreen untuk single image
   if (isFullscreen) {
     return (
-      <div className="fullscreen-overlay" onClick={toggleFullscreen}>
-        <img src={subProject.image} alt={subProject.title} className="fullscreen-image" />
-        <button className="fullscreen-close" onClick={toggleFullscreen}>✕</button>
+      <div className="fullscreen-overlay" onClick={closeFullscreen}>
+        <img src={images[0]} alt={subProject.title} className="fullscreen-image" />
+        <button className="fullscreen-close" onClick={closeFullscreen}>✕</button>
       </div>
     );
   }
@@ -29,9 +77,28 @@ export default function ProjectDetailModal({ subProject, projectName, projectCol
         </div>
         
         <div className="detail-modal-body">
-          <div className="detail-image-container" onClick={toggleFullscreen}>
-            <img src={subProject.image} alt={subProject.title} className="detail-image" />
-            <div className="image-fullscreen-icon">🔍 Click to fullscreen</div>
+          <div className="detail-image-container">
+            <img 
+              src={images[currentImageIndex]} 
+              alt={`${subProject.title} - ${currentImageIndex + 1}`} 
+              className="detail-image" 
+              onClick={openFullscreen}
+            />
+            
+            {/* Tombol slider kiri/kanan */}
+            {hasMultipleImages && (
+              <>
+                <button className="slider-prev" onClick={prevImage}>◀</button>
+                <button className="slider-next" onClick={nextImage}>▶</button>
+                <div className="image-counter">
+                  {currentImageIndex + 1} / {images.length}
+                </div>
+              </>
+            )}
+            
+            <div className="image-fullscreen-icon" onClick={openFullscreen}>
+              🔍 Click to fullscreen
+            </div>
           </div>
           
           <div className="detail-info">
